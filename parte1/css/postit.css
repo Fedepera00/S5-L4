@@ -1,0 +1,75 @@
+body {
+  font-size: 2rem;
+  font-family: "Indie Flower", sans-serif;
+  overflow-x: hidden;
+  /* NASCONDO LO SCROLL ORIZZONTALE */
+}
+
+section {
+  background-color: #666;
+  display: flex;
+  justify-content: space-evenly;
+  /* DISTRIBUISCO GLI ELEMENTI IN MANIERA UNIFORME CHIARA E PULITA  */
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+section h2 {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.card {
+  padding: 2em;
+  margin: 0.7em;
+  box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+  transition: transform 0.1s ease-in-out, box-shadow 0.2s ease-out;
+  /* TRANSIZIONE SU HOVER */
+  animation: restart 1s ease;
+  /* ANIMAZIONE IN ENTRATA */
+}
+
+.card.yellow {
+  background-color: rgb(255, 255, 204);
+  background-image: linear-gradient(rgb(255, 255, 204), rgb(231, 231, 174) 75%, rgb(205 205 143) 93%);
+  transform: rotate(-4deg); /* Ruota un pochino il post-it */
+}
+
+.card.green {
+  background-color: rgb(204, 255, 204);
+  background-image: linear-gradient(rgb(204, 255, 204), rgb(184, 219, 184) 75%, rgb(146 180 146) 93%);
+  transform: rotate(4deg); /* Ruota il post-it in direzione opposta */
+}
+
+.card.blue {
+  background-color: rgb(204, 204, 255);
+  background-image: linear-gradient(rgb(204, 204, 255), rgb(176, 176, 204) 75%, rgb(147 147 186) 93%);
+  transform: rotate(10deg); /* Ruota il post-it di più rispetto agli altri */
+}
+
+.card:hover {
+  /* SI INGRANDISCE DI SCALA 1.15 AL PASSAGGIO DEL MOUSE */
+  transform: scale(1.15);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+  /* CON Z INDEX 10 PORTO IL POST-IT IN PRIMO PIANO DELLA PAGINA */
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* EXTRA ESERCIZIO RESTART PAGINA */
+/* I KEYFRAMES SVOLGONO IN AUTOMATICO LE ANIMAZIONI AL CARICAMENTO DELLA PAGINA E VANNO SEMPRE IN % */
+@keyframes restart {
+  0%,
+  50% {
+    opacity: 0;
+    transform: scale(10);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
